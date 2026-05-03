@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sudhu Ji ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:black;
+  color:white;
+  overflow:hidden;
+}
+
+/* intro */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+  cursor:pointer;
+}
+.fade{ animation:fadeOut 1.5s forwards; }
+@keyframes fadeOut{ to{opacity:0; visibility:hidden;} }
+
+/* pages */
+.page{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:1s;
+  text-align:center;
+  pointer-events:none;
+}
+.page.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* typing */
+.typing{
+  display:inline-block;
+  border-right:2px solid white;
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation:typing 3s steps(30,end) forwards, blink .6s infinite;
+}
+@keyframes typing{ to{width:100%;} }
+@keyframes blink{ 50%{border-color:transparent;} }
+
+/* video */
+.video{
+  width:260px;
+  border-radius:18px;
+  margin:15px 0;
+}
+
+/* 📸 IMAGE ROW (BIGGER) */
+.image-row{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+
+.image-row img{
+  width:140px;
+  height:190px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
+
+.image-row img:hover{
+  transform:scale(1.05);
+}
+
+/* 📱 mobile fix */
+@media (max-width:600px){
+  .image-row img{
+    width:110px;
+    height:150px;
+  }
+}
+
+/* single image page */
+.single-img{
+  width:260px;
+  border-radius:16px;
+  margin:25px 0;
+  box-shadow:0 8px 25px rgba(0,0,0,0.7);
+}
+
+/* buttons */
+.buttons{ margin-top:10px; }
+button{
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  margin:5px;
+  cursor:pointer;
+}
+.yes{ background:#ff3366;color:white; }
+.no{ background:#333;color:white; }
+
+/* waveform */
+.wave{
+  display:flex;
+  gap:4px;
+  margin-top:10px;
+  height:40px;
+}
+.barWave{
+  width:4px;
+  background:#ff3366;
+  height:10px;
+  border-radius:2px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TAP START -->
+<div class="overlay" id="intro">
+  <h1>✨ Tap to Begin ✨</h1>
+</div>
+
+<audio id="voice" src="voice.mp3"></audio>
+
+<!-- PAGE 1 -->
+<div id="p1" class="page">
+  <h1 class="typing">Happy Birthday Sudhu Ji 🎂</h1>
+  <p>I pray to SHIV JI that apke sare sapne pure ho jae
+    ...ap ek chotu sa , cutu sa cafe kholo ...jismein mein apka help karu 🥹...aur hamesha smile karte raho
+    kyuki apke face mein ghussi aur tension acchi nahi lagti ... happy face accha lagta hai ☺️</p>
+  <button class="yes" onclick="next(2)">Next ➡️</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="p2" class="page">
+  <h1>🎁 Ek chotu sa virtual gift 🥹</h1>
+  <video class="video" controls>
+    <source src="video.mp4">
+  </video>
+  <button class="yes" onclick="next(3)"> next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="p3" class="page">
+  <h1>Let me tell u sudhu ji one thing that</h1>
+  <div class="image-row">
+    <img src="p1.jpg">
+    <img src="p2.jpg">
+    <img src="p3.jpg">
+    <p>How in a sky crowded with stars... 
+    You remain the only moon i see  
+    How among billions of faces in this World   
+    It is only your eye i ever search for     
+    Mein puri janat , narak aur prithvi dhund liya   
+    par koi itni sundar nahi mili</p>
+  </div>
+
+  <button class="yes" onclick="next(4)">Yes, i agree Rajjo</button>
+  <button class="no" onclick="changeNo(this)">No , i look potty</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="p4" class="page">
+  <h1>Your Eyes are just wow 💫... </h1>
+  <h1>kisi ne sach kaha hai ki "Jo jee bhar dekhne baithe usse to shaam kya ek umar bhi kaam lagti hai
+    woh itni khubsurat hai ki uske aage muhje duniya ki har khubsurat cheez fiki lagti hai </h1>
+
+  <div class="image-row">
+    <img src="p4.jpg">
+    <img src="p5.jpg">
+    <img src="p6.jpg">
+  </div>
+  <button class="yes" onclick="next(5)">Next 😄</button>
+</div>
+
+<!-- PAGE 5 (EXTRA IMAGE) -->
+<div id="p5" class="page">
+  <h1>Thank u Sudhu for introducing me to this.... thank u 🥹 </h1>
+  <h1>Sussi baki hai par .... i know muhje accha nahi lage ga </h1>
+  <img src="extra.jpg" class="single-img">
+  <p>If I could put a star each time when u come in my mind , the cosmos would be jealous of the galaxy i have made...</p>
+  <button class="yes" onclick="next(6)">Next ➡️</button>
+</div>
+
+<!-- PAGE 6 -->
+<div id="p6" class="page">
+  <h1>Before u go i want to tell u something… 🎙️</h1>
+
+  <button onclick="startVoice()">▶ Play Voice</button>
+
+  <div class="wave" id="wave"></div>
+  <p id="subtitle"></p>
+
+  <img src="yourphoto.jpg" style="width:160px; border-radius:12px;">
+
+  <p>Can you forgive this gadhe ka baccha , chotu sa hai ... galti ho gayi usse please maaf kar do🥺 ... promise karta hai ki ab nhi karega</p>
+
+  <button class="yes" onclick="end()">Yes ❤️</button>
+  <button class="no" onclick="changeNo(this)">No 🥺</button>
+</div>
+
+<script>
+let audio=document.getElementById("voice");
+
+document.getElementById("intro").onclick=()=>{
+  document.getElementById("intro").classList.add("fade");
+  show(1);
+};
+
+function next(n){ show(n); }
+
+function show(n){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("p"+n).classList.add("active");
+}
+
+function changeNo(btn){
+  const t=["Hatt Sundar kahi ki","sowwwli sudhu ji" , "Sowwwwwli please na 🥺"];
+  btn.innerText=t[Math.floor(Math.random()*t.length)];
+}
+
+/* waveform */
+const wave=document.getElementById("wave");
+let bars=[];
+for(let i=0;i<20;i++){
+  let b=document.createElement("div");
+  b.className="barWave";
+  wave.appendChild(b);
+  bars.push(b);
+}
+
+let ctx, analyser, source;
+
+function startVoice(){
+  if(!ctx){
+    ctx=new AudioContext();
+    analyser=ctx.createAnalyser();
+    source=ctx.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(ctx.destination);
+  }
+  audio.play();
+  animateWave();
+  subtitle();
+}
+
+function animateWave(){
+  const data=new Uint8Array(analyser.frequencyBinCount);
+  function loop(){
+    analyser.getByteFrequencyData(data);
+    bars.forEach((b,i)=> b.style.height=(data[i]/2)+"px");
+    requestAnimationFrame(loop);
+  }
+  loop();
+}
+
+function subtitle(){
+  const text="Hey Sudhu Ji… I really wanted to say this from my heart ❤️";
+  let i=0;
+  let el=document.getElementById("subtitle");
+  el.innerHTML="";
+  let inter=setInterval(()=>{
+    el.innerHTML+=text[i];
+    i++;
+    if(i>=text.length) clearInterval(inter);
+  },40);
+}
+
+function end(){
+  document.body.innerHTML="<h1 style='text-align:center;margin-top:40vh;'>Thank u sudhu ji ❤️</h1>";
+}
+</script>
+
+</body>
+</html>
